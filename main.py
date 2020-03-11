@@ -2,6 +2,7 @@ from PIL import Image
 import sys
 import io
 import time
+import datetime
 
 try:
     import picamera
