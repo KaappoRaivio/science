@@ -16,7 +16,7 @@ with picamera.PiCamera() as camera:
 	camera.awb_mode = "off"
 	camera.awb_gains = g
 	print("done")
-	os.system(f"mkdir -p /home/pi/data/{datetime.datetime.now().strftime('%T')}")
+	os.system(f"mkdir -p /home/pi/data/{datetime.datetime.now().strftime('%F')}")
 
 	start = time.time()
 	for filename in camera.capture_continuous("/home/pi/data/{timestamp:%F}/{timestamp:%T}.jpeg", format="jpeg", resize=(640, 480)):
