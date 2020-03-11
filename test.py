@@ -20,6 +20,7 @@ with picamera.PiCamera() as camera:
 
 	start = time.time()
 	for filename in camera.capture_continuous("/home/pi/data/{timestamp:%F}/{timestamp:%T}.jpeg", format="jpeg", resize=(640, 480)):
+		os.system(f"mkdir -p /home/pi/data/{datetime.datetime.now().strftime('%F')}")
 		end = time.time()
 		time.sleep(INTERVAL - (end - start))
 		start = time.time()
