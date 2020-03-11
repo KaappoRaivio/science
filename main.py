@@ -35,6 +35,7 @@ def getPhoto():
     try:
         return getRaspiImage()
     except:
+        print("problem")
         return openImage("IMG_20200309_134525.jpg")
 
 
@@ -42,9 +43,9 @@ def getMask():
     return openImage("IMG_20200309_134525_maski.png")
 
 
-def analyze():
+def analyze(mask):
     newData = []
-    for pixel, mask in zip(getPhoto(), getMask()):
+    for pixel, mask in zip(getPhoto(), mask):
         newData.append((*pixel[:3], mask[0]))
 
     filtered = filter(lambda x: x[3] != 0, newData) # filter all masked
@@ -60,11 +61,13 @@ if __name__ == "__main__":
     else:
         mode = "a"
 
+    mask = getMask()
+
     with open("/home/pi/science/data.csv", mode) as file:
         for i in range(1080):
             start = time.time()
-            file.write(f"{analyze():.2f};")
+            file.write(f"{analyze(mask):.2f};")
             end = time.time()
-            time.sleep(max(5 - (end - start), 0))
+            # time.sleep(max(5 - (end - start), 0))
 
         file.write("\n")
