@@ -18,7 +18,7 @@ with picamera.PiCamera() as camera:
 	os.system("mkdir -p /home/pi/data/${date +%F}")
 
 	start = time.time()
-	for filename in camera.capture_continuous("/home/pi/data/${date +%F}/$(date +%T).jpg", format="jpg", resize=(640, 480)):
+	for filename in camera.capture_continuous("/home/pi/data/${date +%F}/$(date +%T).jpeg", format="jpeg", resize=(640, 480)):
 		end = time.time()
 		time.sleep(INTERVAL - (end - start))
 		start = time.time()
