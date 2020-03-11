@@ -61,4 +61,10 @@ if __name__ == "__main__":
         mode = "a"
 
     with open("data.csv", mode) as file:
-        file.write(f"{analyze():.2f};")
+        for i in range(1080):
+            start = time.time()
+            file.write(f"{analyze():.2f};")
+            end = time.time()
+            time.sleep(max(5 - (end - start), 0))
+
+        file.write("\n")
