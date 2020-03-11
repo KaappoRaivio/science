@@ -71,6 +71,7 @@ if __name__ == "__main__":
         for i in range(1080):
             start = time.time()
             file.write(f"{analyze(mask):.2f};")
+            file.flush()
             end = time.time()
             # time.sleep(max(5 - (end - start), 0))
 
