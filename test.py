@@ -1,5 +1,8 @@
+INTERVAL = 5
+
 import time
 import picamera
+import os
 
 with picamera.PiCamera() as camera:
 	camera.resolution = (1280, 720)
@@ -11,5 +14,10 @@ with picamera.PiCamera() as camera:
 	camera.awb_mode = "off"
 	camera.awb_gains = g
 	print("done")
+	os.system("mkdir -p /home/pi/data/${date +%F}")
 
-	camera.capture_sequence([f"image{i}.png" for i in range(10)])
+	start = time.time()
+	for filename in camera.capture_continous("/home/pi/data/${date +%F}/$(date +%T).jpg", format="jpg", resize=(640, 480)):
+		end = time.time()
+		time.sleep(INTERVAL - (end - start))
+		start = time.time()
