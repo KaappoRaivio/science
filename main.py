@@ -60,7 +60,7 @@ if __name__ == "__main__":
     else:
         mode = "a"
 
-    with open("~/science/data.csv", mode) as file:
+    with open("/home/kaappo/science/data.csv", mode) as file:
         for i in range(1080):
             start = time.time()
             file.write(f"{analyze():.2f};")
