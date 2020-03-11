@@ -8,9 +8,11 @@ try:
 except ImportError:
     print("couldn't import PiCamera!")
 
+camera = picamera.PiCamera()
+
+
 def getRaspiImage():
     stream = io.BytesIO()
-    camera = picamera.PiCamera()
     camera.start_preview()
     sleep(2)
 
