@@ -68,11 +68,10 @@ if __name__ == "__main__":
     mask = getMask()
 
     with open("/home/pi/science/data.csv", mode) as file:
+        file.write(f":")
         for i in range(1080):
             start = time.time()
-            file.write(f"{analyze(mask):.2f};")
+            file.write(f"{datetime.datetime.now().isoformat()};{analyze(mask):.2f}\n")
             file.flush()
             end = time.time()
-            # time.sleep(max(5 - (end - start), 0))
-
-        file.write("\n")
+            time.sleep(max(5 - (end - start), 0))
