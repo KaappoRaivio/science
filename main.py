@@ -32,11 +32,11 @@ def openImage(path):
     return a
 
 def getPhoto():
-    return openImage("/home/kaappo/git/science/IMG_20200309_134525.jpg")
+    return openImage("IMG_20200309_134525.jpg")
 
 
 def getMask():
-    return openImage("/home/kaappo/git/science/IMG_20200309_134525_maski.png")
+    return openImage("IMG_20200309_134525_maski.png")
 
 
 def analyze():
