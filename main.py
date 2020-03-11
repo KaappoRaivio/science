@@ -13,8 +13,8 @@ camera = picamera.PiCamera()
 
 def getRaspiImage():
     stream = io.BytesIO()
-    camera.start_preview()
-    sleep(2)
+    # camera.start_preview()
+    sleep(1)
 
     camera.capture(stream, format='jpeg')
     # "Rewind" the stream to the beginning so we can read its content
