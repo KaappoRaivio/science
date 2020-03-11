@@ -37,8 +37,9 @@ def openImage(path):
 def getPhoto():
     try:
         return getRaspiImage()
-    except:
+    except Exception as e:
         print("problem")
+        print(e)
         return openImage("IMG_20200309_134525.jpg")
 
 
