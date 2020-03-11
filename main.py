@@ -58,3 +58,4 @@ if __name__ == "__main__":
         mode = "a"
 
     with open("data.csv", mode) as file:
+        file.write(f"{analyze():.2f};")
