@@ -32,7 +32,10 @@ def openImage(path):
     return a
 
 def getPhoto():
-    return openImage("IMG_20200309_134525.jpg")
+    try:
+        return getRaspiImage()
+    except:
+        return openImage("IMG_20200309_134525.jpg")
 
 
 def getMask():
