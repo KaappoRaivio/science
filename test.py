@@ -1,5 +1,5 @@
 INTERVAL = 5
-COUNT = 2
+COUNT = 1080
 
 import time
 import picamera
@@ -23,7 +23,7 @@ with picamera.PiCamera() as camera:
 	for count, filename in enumerate(camera.capture_continuous("/home/pi/data/{timestamp:%F}/{timestamp:%T}.jpeg", format="jpeg", resize=(640, 480))):
 		os.system(f"mkdir -p /home/pi/data/{datetime.datetime.now().strftime('%F')}")
 		os.system("sync")
-		if count == COUNT:
+		if count == COUNT-1:
 			break
 
 		end = time.time()
